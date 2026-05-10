@@ -6,7 +6,7 @@
 
 SCoT is a scholarly software for the graph-based analysis of distributional semantics over time. There are many use cases. SCoT has been utilized, for example, to unearth the changing meaning of "network" from the medieval ages to the digital era. [Friedrich, Biemann 2016]
 
-![A clustered graph](./images/into-1.png "Clustered graph for target word 'happiness/NN', 30 nodes, 15 edges per node, 1520-2008")
+![A clustered graph](./images/intro-1.png "Clustered graph for target word 'happiness/NN', 30 nodes, 15 edges per node, 1520-2008" )
 
 The user begins by selecting a precalculated corpus [1] using the Collection dropdown, which allows users to choose the corpus/database. Next, the user selects the Start of first interval, which defines the beginning year of the analysis, and the End of last interval, which defines the final year of the analysis [2], [3]. The user also specifies a target word [4]. The semantic metrics used by SCoT have been precalculated by the Language Technology Group using the JoBim Framework [and, in the case of Google Books, by Google]. The main purpose of SCoT is to analyze these metrics through clustered graph visualizations [9].
 
