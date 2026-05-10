@@ -1,6 +1,6 @@
 SCoT (Sense Clustering over Time) is a web application to view the sense-clusters of a word and their evolvement over time. The idea is to help scholars and scientists interested in diachronic distributional semantics visualize and analyse the clusters on a graph. 
 
-You can find SCoT at <http://ltdemos.informatik.uni-hamburg.de/scot/>
+You can find SCoT at <https://scot.ltdemos.informatik.uni-hamburg.de/>
 
 The functionalities and usage are described in the [user guide](userGuide.md).   
 If you would like to deploy or develop SCoT yourself, see [installation guide](installationGuide.md).  
