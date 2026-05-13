@@ -4,25 +4,22 @@
 
 When selecting "time diff" mode in the cluster-analysis sidebar on the right-hand side, two options are presented: "Interval" and "Time-Slices".
 
-![Time Diff](./images/time_diff.png)
-
-When in this mode, some functionalities are disabled, such as saving the graph [it requires saving with the original cluster colors].
+![Time Diff](./images/time-diff-modes.png)
 
 ## Select Interval
 
 With the option "Select Interval" the user can select a specific time interval within the time period selected for the graph and compare the smaller interval to the larger one.
 
-In the example from Google Books data below, the interval from 1954 to 1974 is selected. Nodes that do not occur before 1520 and 1954 are categorized as *born* (green nodes), since they start to occur somewhere within the selected period. Nodes that do not occur between 2001 and 2008 are classified as *deceased* (red nodes), since they stop occurring within the the selected time period. Words that start and stop occurring within the selected time period are categorized as *shortlived* (yellow nodes). All other nodes occur consistently (grey nodes). Hovering over the button shows the nodes in the graph.
+In the example from Google Books data below, the interval from 1931 to 1972 is selected. Nodes that do not occur before 1520 and 1931 are categorized as *born* (green nodes), since they start to occur somewhere within the selected period. Nodes that do not occur between 1972 and 2008 are classified as *deceased* (red nodes), since they stop occurring within the the selected time period. Words that start and stop occurring within the selected time period are categorized as *shortlived* (yellow nodes). All other nodes occur consistently (grey nodes). Hovering over the button shows the nodes in the graph.
 
-![Select Interval](./images/select_interval.png)
+![Select Interval](./images/interval-details.png)
 
 All the nodes of a category are listed when the user clicks on the button. When the user hovers over the main time-category button such as "Died before interval"  the nodes belonging to this category are faded in in the graph.
 
-In the graph, the nodes are coloured accordingly. The previous cluster colours are still visible in the edit graph column. 
+In the graph, the nodes are coloured accordingly when "Show Differences" is clicked. To regain the previous cluster colours in the graph, either switch to "Cluster" or "Functions" in the Cluster Analysis. Or choose "Reset Highlighting" from the top nav-bar. 
 
-![Time Interval Graph](./images/fixed_time_diff_graph.png)
+![Time Interval Graph](./images/colored-nodes.png)
 
-To regain the cluster colours in the graph switch back to sense clustering mode.
 
 
 ## Skip through time slices
