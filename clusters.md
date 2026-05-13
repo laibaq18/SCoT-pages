@@ -2,16 +2,17 @@
 
 [Back to user guide contents list](userGuide.md)
 
-After clicking the Analysis - Button on the Navigation-Bar, the user is presented with an analysis-menu on the right-hand side of the screen. The Cluster-Setting brings up a  list of the clusters for further analysis and editing.
+After clicking the Analyse Clusters button in the navigation bar, SCoT opens the Cluster Analysis Menu on the right-hand side of the screen. This panel allows users to inspect, compare, edit, and analyze the clusters generated from the graph.
 
-![Analysis Menu](./images/03_analysis_menu.jpg)
+![Analysis Menu](./images/main-right-bar.png)
 
 
 ## Contents
-
 * [Editing the Clusters](#editing-the-clusters)
-* [Edit Cluster Name](#edit-cluster-name)
-* [Edit Cluster Colour](#edit-cluster-colour)
+* [Edit Cluster Name](#edit-cluster-name-&-colour)
+* [Edit Cluster Colour](#edit-cluster-name-&-colour)
+* [Nodes Plot](#view-nodes-plot)
+* [Cluster Context Analysis](#cluster-context-analysis)
 * [Add Cluster Node](#add-cluster-node)
 * [Delete Cluster Node](#delete-cluster-node)
 * [Delete Complete Cluster](#delete-complete-cluster)
@@ -19,54 +20,98 @@ After clicking the Analysis - Button on the Navigation-Bar, the user is presente
 
 [To the top](#editing-the-graph-via-the-functions-of-the-editing-sidebar)
 
-
 ## Editing the Clusters
 
-In the edit column all the clusters in the graph are listed. For each cluster there are four buttons: one to show the nodes of the cluster, one to show the context-words that are shared by all nodes of the cluster, one to edit the cluster and another to delete the cluster.
+Each cluster is displayed as an expandable panel in the analysis menu.
+For every cluster, SCoT provides:
+* the number of nodes in the cluster,
+* a nodes plot,
+* option to change cluster name/color,
+* option to show the context-words that are shared by all nodes of the cluster,
+* and cluster deletion functionality.
 
-![Cluster List](./images/cluster_list.png)
+Clusters are colour-coded and correspond directly to the colours used in the graph visualization.
+
+
+![Cluster List](./images/nodes-detail.png)
 
 When hovering over the cluster and context buttons, all the nodes and edges in the graph belonging to the cluster are faded in in the graph.
 
-![Fade In Cluster](./images/show_cluster_in_graph2.png)
+![Fade In Cluster](./images/hover-over-a-cluster.png)
 
 
 In some cases, nodes are not connected to any other in the graph. They are only neighbours of the target word. Then, the nodes are not rendered in the graph, but they are listed under "Singletons" in the edit column.
 
-![Singletons](./images/singletons.png)
+![Singletons](./images/singleton.png)
 
 
-## Edit Cluster Name
+## Edit Cluster Name & Colour
 
-The program only numbers the clusters and it is up to the user to name the cluster. A cluster name can be changed via the edit button of a cluster.
+The program only numbers the clusters and it is up to the user to name the cluster. Users can rename clusters and also assign custom colours through the Name section.
 
-![Edit Cluster Name](./images/edit_cluster_name.png){:height="40%" width="40%"}
+The user can:
+* change the cluster name,
+* display the cluster label inside the graph,
+* and select a custom cluster colour using the colour picker.
 
-The user can enter the new name in the text input field "cluster name". The name of the cluster is automatically updated while typing.
+![Edit Cluster Name & Colour](./images/cluster-name-color.png){:height="40%" width="40%"}
 
-[To the top](#editing-the-graph-via-the-functions-of-the-editing-sidebar)
+The user can enter the new name in the text input field "Change cluster name". The name of the cluster is automatically updated while typing. The user can also select a different cluster colour by clicking on the colour field with the label "Select cluster colour" when editing a cluster. Then a colour picker opens and the user can select the new colour. Your colour picker may look different to the one in the image, since the appearance of the colour picker depends on your browser. The colour of the circle next to the cluster name is directly updated. 
 
-
-## Edit Cluster Colour
-
-The user can also select a different cluster colour by clicking on the colour field with the label "Select cluster colour" when editing a cluster. Then a colour picker opens and the user can select the new colour.
-
-![Choose Colour](./images/change_color.png)
-
-Your colour picker may look different to the one in the image, since the appearance of the colour picker depends on your browser.
-
-The colour of the circle next to the cluster name is directly updated. However, to apply the new colour to the graph, the user needs to click on the button "Apply" at the bottom of the edit column.
-
-The user can edit multiple clusters before clicking the "Apply" button to make the updated visible in the graph.
+However, the graph updates with the new name and color after clicking "Update Clusters" at the bottom of the analysis panel. The user can edit multiple clusters before clicking the "Update Clusters" button to make the updated visible in the graph.
 
 [To the top](#editing-the-graph-via-the-functions-of-the-editing-sidebar)
+
+## View Nodes Plot
+
+The Nodes Plot shows the aggregated average frequency and similarity of cluster nodes across different time intervals. It helps users observe how strongly connected and how frequently used the cluster terms are over time.
+
+Users can also compare multiple clusters in the same plot by selecting "Add other clusters" from the list below the graph. This makes it easier to identify semantic trends, changes in importance, and similarities or differences between clusters over time.
+
+<p align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="./images/nodes-plot-1.png" alt="Single cluster nodes plot" width="100%">
+        <br>
+        <em>Single cluster nodes plot</em>
+      </td>
+      <td align="center">
+        <img src="./images/nodes-plot-all.png" alt="Multiple cluster comparison plot" width="100%">
+        <br>
+        <em>Multiple cluster comparison plot</em>
+      </td>
+    </tr>
+  </table>
+</p>
+
+Users can interact with the graph by "zooming-in or zooming-out" and can also download the generated plot via the "camera icon" at the top. 
+
+## Cluster Context Analysis
+
+The context section shows the most significant syntagmatic contexts of the nodes of a cluster.
+
+![Cluster Context](./images/cluster-context.png)
+
+
+By clicking the "Context" button, a table opens to the left which contains context-words, normalized significance score, and filtering options. By selecting context-words and clicking “Context-Frequency Plot”, users can generate a temporal visualization of context frequency over time. This plot helps users analyze when a context emerged, how important a context became, and whether a context increased or declined historically.
+
+The selected context words are listed below for reference.
+
+![Cluster context table](./images/cluster-context-bar.png)
+![Cluster context frequency plot](./images/cluster-context-plot.png)
+
+
+Users can filter the context-words using the search field to focus on specific semantic patterns of a target word. Calculations can take long. It is recommended to query only clusters with 20 or less nodes.
+
+![Filtered context words](./images/context-filtered.png)
 
 
 ## Delete Complete Cluster
 
 Complete cluster can be deleted via the button with the trash icon. The user then has to confirm the deletion in a confirmation message. When the user confirms all the nodes and links of the cluster are deleted.
 
-![Confirm Cluster Deletion](./images/confirmation_cluster_deletion.png){:height="75%" width="75%"}
+![Confirm Cluster Deletion](./images/delete-cluster.png){:height="75%" width="75%"}
 
 
 ## Add Cluster Node [currently under revision - not enabled]
