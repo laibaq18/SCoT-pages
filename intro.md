@@ -53,4 +53,6 @@ Most of the functionality of SCoT is accessible through three main interaction a
 [More info on the interaction with the graph](interacting.md)  
 [More info on the contextual mode](context.md)
 
+[4] [More info on the Top Navigation bar](navbar.md)
+
  
