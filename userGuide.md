@@ -6,5 +6,6 @@
 2. [Graph-Rendering](renderingGraph.md)
 3. [Graph-Interaction: Nodes and Edges](interacting.md)
 4. [Cluster-Analysis](clusters.md)
-5. [Time-Slice-Analysis](timeDiff.md)
-6. [NEW Context-Mining](context.md)
+6. [Time-Slice-Analysis](timeDiff.md)
+7. [Advanded Graph Functions](Functions.md)
+8. [NEW Context-Mining](context.md)
