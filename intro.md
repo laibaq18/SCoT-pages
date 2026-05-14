@@ -44,7 +44,7 @@ Most of the functionality of SCoT is accessible through three main interaction a
 [1] The **Create Graph** Button slides out the Graph-Menu on the left which enables the shaping of the graph and the editing of the view settings that shape the display of the graph.  
 [More info on the settings sidebar](renderingGraph.md)  
 
-[2] The **Analyse Clusters** Button - brings up the cluster analysis section with the time-diff mode on the right-hand side.  
+[2] The **Analyse Clusters** Button - brings up the cluster analysis section on the right-hand side for cluster editing/inspection, along with time-diff mode and advanced graph functions.  
 [More info on the analysis options](clusters.md)  
 [More info on the time-diff mode](timeDiff.md)  
 [More info on the Functions](Functions.md)
@@ -53,6 +53,4 @@ Most of the functionality of SCoT is accessible through three main interaction a
 [More info on the interaction with the graph](interacting.md)  
 [More info on the contextual mode](context.md)
 
-[4] [More info on the Top Navigation bar](navbar.md)
-
- 
+[4] Overview of the [Top Navigation bar](navbar.md)
