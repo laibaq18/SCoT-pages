@@ -2,63 +2,88 @@
 
 [Back to user guide contents list](userGuide.md)
 
-A sidebar to change the general settings of SCoT and enter the parameters for rendering and updating a graph is located to the left side of the page.
+The "Graph properties" sidebar is located on the left-hand side of the interface and provides main controls for: creating and updating graphs, configuring graph parameters, and adjusting visualization and interaction settings.
 
 ## Content
 
 * [Rendering a Graph from the Database](#rendering-a-new-graph-from-the-database)
 * [Rendering a Graph from a File](#rendering-a-graph-from-a-file)
 
-## Parameter Input for Rendering a Graph
-When the user first opens SCoT, it is recommended to click the START-button which brings up the graph-menu. The graph menu allows either to shape a new graph (as explained on the last page) OR to load and save a calculated graph. 
+## Rendering a Graph from the Database
+When opening SCoT, users can click the "Create Graph" button to open the Graph Menu and configure a new graph. The graph menu allows users to:
+select a corpus,
+define a target word,
+choose a graph type,
+and configure graph-generation parameters.
 
-![Clean new session](./images/00appwithgraph.jpg "New Session")
+More information about graph generation can be found in the [Introduction](intro.md).
 
-Secondly, the user can set display settings, including  
-- resetting to the preset-display settings
-- Enabling interaction with the full graph or parts of it
-- Further, the graph is displayes using a force-directed algorithm. 
+![Clean new session](./images/intro-1.png "Clustered graph for target word 'happiness/NN', 30 nodes, 15 edges per node, 1520-2008" )
 
-The user can decide between two different dragging behaviours, as well as influence parameters of the force simulation, which is used to calculate the position of the nodes in the graph. For more information on how to manipulate the graph directly, see [the section on interacting with the graph](interacting.md).
+### View Settings
+The View section contains settings related to graph visualization and interaction.
+Available options include:
+- resetting the visualization to default settings,
+- enabling interaction with the graph,
+- selecting node dragging behaviour,
+- and modifying force-simulation parameters.
+
+SCoT uses a force-directed layout algorithm to position graph nodes dynamically.
 
 
-![Clean new session](./images/02_settings.jpg "New Session")
+![View settings](./images/view-properties.png "View settings")
 
 
-## Choosing the Dragging Behaviour
+## 1. Choosing the Dragging Behaviour
 
-![Dragging Behaviour Setting](./images/dragging_restart_sim.png)
+SCoT provides two different node-dragging modes.
 
-The user can select between two different kinds of dragging behaviour.
+![Dragging Behaviour Setting](./images/dragging-behavior.png)
 
-1. **Enable brush (no force).** This enables to user to select multiple nodes at the same time using a brush movement and dragging all of them at the same time to a different position. The force is not acitve, so that the other nodes to not reposition themselves.
-2. **Use force (no brush available).** This is the default dragging behaviour. Only one node can be dragged at a time and the other nodes reposition themselves according to the force simulation. The dragged node is then fixed to its new position, which means that its position does not change if the force parameters are updated or other nodes dragged somewhere.
+### Single-Drag
 
-All the nodes that are fixed to their position can be released by clicking on the button "Restart Simulation".
+Single-Drag is the default dragging behaviour.
 
-For how to drag nodes in the graph, see [the section on interacting with the graph](interacting.md).
+- Only one node can be selected and moved at a time.
+- The remaining nodes reposition automatically according to the force simulation. 
+- Dragged node becomes fixed in its new position, which means that its position does not change if the force parameters are updated or other nodes dragged somewhere.
+
+The user selects a node by clicking on it. Then the selected node is marked with a red circle around it.
+
+![Selected Node](./images/selected_node.png)
+
+### Multi-Drag
+
+Multi-Drag allows users to select multiple nodes at the same time using a brush movement and dragging all of them at the same time to a different position. This dragging pauses the force simulation, meaning you can select a node and drag it around without any other nodes following. Again, nodes that have been dragged are fixed to their position from then on.
+
+### Release Fixed Nodes
+
+All manually dragged/fixed nodes can be released by clicking the "Release All Fixed" button. This allows the force simulation to reposition the nodes dynamically again.
+
 
 [To the top](#editing-the-graph-via-the-functions-of-the-editing-sidebar)
 
 
-## Manipulate the Simulation
+## 2. Manipulate the Simulation
 
-![Default Simulation Settings](./images/default_simulation_settings.png)
+![Simulation Settings](./images/simulation_settings.png)
 
-SCoT lets you edit two simulation parameters: the charge strength between the nodes and the link distance.
-The default value for the charge strength is -50, the default value for the link distance is 50.
-A graph with 100 nodes, 30 edges and these simulation parameter values looks like this:
+SCoT allows the user to edit two simulation parameters that are used to arrange the graph nodes:
+- Charge Strength
+- Link Distance
+<!-- The default value for the charge strength is -50, the default value for the link distance is 50. -->
+A graph with 100 nodes, 30 edges and simulation parameter values of charge strength = -50 and link distance = 50 looks like this:
 
 ![Default Graph](./images/graph_for_intro.png){:height="75%" width="75%"}
 
-The use can change the value of the charge strength from values in the range of -200 to 100. Changing the charge strength influences the repelling forces between the nodes. The same graph with a charge strength of -100 and the default link distance looks as follows:
+The user can change the value of the charge strength from values in the range of -200 to 100. Changing the charge strength influences the repelling forces between the nodes. The same graph with a charge strength of -100 and the default link distance looks as follows:
 
 ![Graph Charge -100](./images/graph_charge-100.png)
 
 As a rule of thumb, a negative charge strength pushes the nodes further apart, simulating repulsion, and a positive charge strength pushes nodes together, simulating gravity or attraction.
 
 
-The link distance influences the distance between nodes and therefore the length of the edges between them. A high link distance means a long distance between nodes, a low link distance means a small distance between nodes. The following example shows and graph with a link distance of 150 and the default charge.
+The link distance influences the distance between nodes and therefore the length of the edges between them. A high link distance means a long distance between nodes, a low link distance means a small distance between nodes. The following example shows the graph with a link distance of 150 and the default charge.
 
 ![Graph Link Distance 360](./images/graph_linkdistance150.png) 
 
@@ -73,13 +98,13 @@ The link distance influences the distance between nodes and therefore the length
 
 If the user enters a target word, for which there is no match in the database, they will recieve the following alert.
 
-![No Matching Target word found in database](./images/alert_no_matching_target.png)
+![No Matching Target word found in database](./images/target-not-found.png)
 
 [To the top](#parameter-input-and-general-settings)
 
-### Rendering a Graph From a File
+## Rendering a Graph From a File
 
-A graph can also be rendered from a file. 
+A graph can also be rendered from a file as explained in the [Functions of Navbar](navbar.md). 
 
 [To the top](#parameter-input-and-general-settings)
 
