@@ -71,6 +71,7 @@ All manually dragged/fixed nodes can be released by clicking the "Release All Fi
 SCoT allows the user to edit two simulation parameters that are used to arrange the graph nodes:
 - Charge Strength
 - Link Distance
+
 <!-- The default value for the charge strength is -50, the default value for the link distance is 50. -->
 A graph with 100 nodes, 30 edges and simulation parameter values of charge strength = -50 and link distance = 50 looks like this:
 
