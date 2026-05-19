@@ -50,6 +50,6 @@ Most of the functionality of SCoT is accessible through three main interaction a
 [More info on the Functions](Functions.md)
 
 [3] Nodes and edges support interactive context-mining functions such as hover tooltips, and contextual analysis on click.
-More information can be found in the [Context-Mining](contextMining.md) section.
+[More info about the Context-Mining section](context.md).
 
 [4] Overview of the [Top Navigation bar](navbar.md)
