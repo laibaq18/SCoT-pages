@@ -49,7 +49,7 @@ Most of the functionality of SCoT is accessible through three main interaction a
 [More info on the time-diff mode](timeDiff.md)  
 [More info on the Functions](Functions.md)
 
-[3] The nodes and edges of the graph provide tooltips, can be dragged, rearranged, deleted and can be clicked for contextual information.  (change this)
-[More info on the contextual mode](context.md)
+[3] Nodes and edges support interactive context-mining functions such as hover tooltips, and contextual analysis on click.
+More information can be found in the [Context-Mining](contextMining.md) section.
 
 [4] Overview of the [Top Navigation bar](navbar.md)
