@@ -92,7 +92,12 @@ The context section shows the most significant syntagmatic contexts of the nodes
 ![Cluster Context](./images/cluster-context.png)
 
 
-By clicking the "Context" button, a table opens to the left which contains context-words, normalized significance score, and filtering options. By selecting context-words and clicking “Context-Frequency Plot”, users can generate a temporal visualization of context frequency over time. This plot helps users analyze when a context emerged, how important a context became, and whether a context increased or declined historically.
+By clicking the "Context" button, a table opens to the left which shows all context words/features for all nodes in the selected cluster across all selected time intervals. It adds up their significance scores, normalizes them, and returns the top 200 context words. Which means it shows the most important shared context words for the cluster overall. 
+
+The "Context-Target-Filtered" on the other hand, first gets the context words of the original target word, then only keeps cluster context words that also appear in the target word’s context set. In simple words, it shows only the cluster context words that are also relevant to the main target word, making the result more focused.
+
+
+By selecting context-words and clicking “Context-Frequency Plot”, users can generate a temporal visualization of context frequency over time. This plot helps users analyze when a context emerged, how important a context became, and whether a context increased or declined historically.
 
 The selected context words are listed below for reference.
 
