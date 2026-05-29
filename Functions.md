@@ -130,9 +130,9 @@ This section changes the size of graph nodes based on how semantically similar t
 
 <!-- Maximum - resizes nodes using the highest similarity value the node reaches in any time interval. This highlights nodes that were extremely important or strongly related at least once in time. -->
 
-Maximum - 
+Maximum - resizes nodes using their highest similarity score observed in any selected time interval. This emphasizes words that were strongly related to the target word at least once.
 
-Average - resizes nodes using the average similarity across all time intervals. This is set by default when a graph is created.
+Average - resizes nodes using the average similarity across all time intervals. This is set by default when a graph is created. This emphasizes nodes that have a strong relationship with the target word over time.
 
 ![Example of ''Maximum similarity''](./images/resized-maximum.png )
 
