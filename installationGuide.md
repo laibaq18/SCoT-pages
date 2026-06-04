@@ -1,92 +1,239 @@
-# Installation Guide
+# SCoT Installation Guide
 
-This guide is designed to help you run SCoT on your own server or local machine. You can either run it in Docker or just directly on your computer.
+This guide is designed to help you run SCoT on your own server or local machine. You can either run it in Docker or directly on your computer.
 
 ## Installation with Docker
-Just clone the repository from GitHub.
 
-```
+Clone the repository from GitHub:
+
+```bash
 $ git clone git@github.com:uhh-lt/SCoT.git
+$ cd SCoT
 ```
-In the SCoT/src_vue directory type
+
+Build the Docker image:
+
+```bash
+$ docker build -t scot .
 ```
-$ docker build -t uhhlt/scot .
-```
-In the SCoT/ directory type
-```
+
+In the `SCoT/` directory, run:
+
+```bash
 $ docker-compose up
 ```
-into your console and the whole thing should be running.
 
-## Configuring the Database with Docker
-For test purposes you can use the dump.sql in the db/ directory as your database.
-For this, provide this file as an entrypoint for Docker database in the `docker-compose.yml` and provide a directory in which the Docker volume will be stored on your local machine (here it's ./db/data).
+The application will be running and accessible at `0.0.0.0:10020` (or `127.0.0.1:10020` depending on your configuration).
+
+### Configuring the Database with Docker
+
+The database configuration is managed through YAML configuration files located in `src_vue/config/`.
+
+Create or modify your configuration in `src_vue/config/config.yaml`. 
+Sample of the configuration is provided in `config_sample.yaml` file:
+
 ```yaml
- db:
-    image: mariadb:10.4.6
-    volumes:
-      - ./db/dump.sql:/docker-entrypoint-initdb.d/dump.sql
-      - ./db/dev_data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: ROOT_PASSWORD
-      MYSQL_DATABASE: DATABASE
-      MYSQL_USER: USER
-      MYSQL_PASSWORD: PASSWORD
-    networks:
-      scot-net:
-```
-Your config.json should look like this:
-```json
-{
-	"host" : "0.0.0.0",
-	"database" : "mysql://USER:PASSWORD@db/DATABASE"
-}
-```
-Feel free to connect your own database to SCoT. Make sure to follow the [`schema.sql`](https://github.com/uhh-lt/SCoT/blob/master/Utility_Files/schema.sql) when creating your database.
+# Server Configuration
+flask_host: "0.0.0.0"
 
-<!--One trick to create a dump.sql is to build an SQL file yourself identical to the provided dump.sql, if your data - like mine - is distributed across multiple databases. You can then use that SQL file as an entrypoint for Docker and create a new volume from it.
--->
+# Environment-specific collections
+environments:
+  dev:
+    - collection_name_1
+    - collection_name_2
+
+# Default values to avoid repetition
+defaults:
+  frontend_info:
+    target: "word#POS"
+    p: 30
+    d: 15
+  es_info:
+    host: "localhost"
+    port: 9200
+    user: "USER"
+    pwd: "PWD"
+  db_url: "mysql+pymysql://user:pwd@localhost:3306"
+  access: "public"
+
+# Collection configurations
+collections:
+  collection_name_1:
+    displayname: "Display Name for Collection"
+    db: "DATABASE NAME"
+    frontend_info: "default"
+    es_info:
+      index: "index name"
+```
+
 
 ## Installation without Docker
-You can also run SCoT locally on your machine. This is especially nice for development purposes. Install the `requirements.txt` via `pip` on your computer or create a venv to run SCoT in and only install the dependencies there. Navigate to the directory `/src_vue` and start SCoT by entering `python scot.py` into your command line. You can view it in a browser under `0.0.0.0:5000`.
 
-## Configuring the Database without Docker
-You can specify your local MySQL database via the config.json. This is my config.json for connecting to my local development database:
-```json
-{
-	"host" : "0.0.0.0",
-	"database" : "mysql://USER@0.0.0.0/DATABASE"
-}
+You can also run SCoT locally on your machine. 
+
+### Prerequisites
+
+- Python 3.8 or higher
+- MySQL/MariaDB
+- Elasticsearch (optional, for full-text search features)
+
+### Setup
+
+Navigate to the `src_vue` directory:
+
+```bash
+$ cd src_vue
 ```
+
+Create a virtual environment (recommended):
+
+```bash
+$ python -m venv venv
+$ source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+Install the required dependencies:
+
+```bash
+$ pip install -r requirements.txt
+```
+
+Configure your local database in `src_vue/config/config.yaml`
+
+### Running SCoT
+
+Start the application:
+
+```bash
+$ python scot.py
+```
+
+Access it in your browser at `127.0.0.1:5006`.
 
 ## Creating a Database
-In order for your database to work with SCoT it needs to follow a certain shema:
+
+Each configured collection points to one MySQL/MariaDB database. The app queries
+these tables and columns:
+
 ```sql
-DROP DATABASE IF EXISTS scot;
-CREATE DATABASE scot;
-
-USE scot;
-
-DROP TABLE IF EXISTS similar_words;
-CREATE TABLE similar_words (
-  word1 varchar(64) NOT NULL,
-  word2 varchar(64) NOT NULL,
-  score int(10) unsigned NOT NULL,
-  time_id int(10) unsigned NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-DROP TABLE IF EXISTS time_slices;
 CREATE TABLE time_slices (
-    id INT UNSIGNED NOT NULL,
-    start_year SMALLINT UNSIGNED NOT NULL,
-    end_year SMALLINT UNSIGNED NOT NULL
-)ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  id INT PRIMARY KEY,
+  start_year INT NOT NULL,
+  end_year INT NOT NULL
+);
 
-CREATE INDEX word1_idx ON similar_words(word1);
-CREATE INDEX word2_idx ON similar_words(word2);
-CREATE INDEX time_id_idx ON similar_words(time_id);
+CREATE TABLE similar_words (
+  word1 VARCHAR(255) NOT NULL,
+  word2 VARCHAR(255) NOT NULL,
+  score DOUBLE NOT NULL,
+  time_id INT NOT NULL,
+  INDEX idx_similar_word1_time (word1, time_id),
+  INDEX idx_similar_word2_time (word2, time_id)
+);
+
+CREATE TABLE word_features (
+  word1 VARCHAR(255) NOT NULL,
+  feature VARCHAR(255) NOT NULL,
+  score DOUBLE NOT NULL,
+  freq DOUBLE NOT NULL,
+  time_id INT NOT NULL,
+  INDEX idx_features_word1_time (word1, time_id),
+  INDEX idx_features_feature_time (feature, time_id)
+);
+
+CREATE TABLE word_counts (
+  word1 VARCHAR(255) NOT NULL,
+  freq BIGINT NOT NULL,
+  ppm DOUBLE NOT NULL,
+  time_id INT NOT NULL,
+  INDEX idx_counts_word1_time (word1, time_id)
+);
 ```
 
-As for the data: you need collocations of the target word and the collocations of the target word's collocations. You also need time slices for when these collocations occur as well as a score (e.g. number of occurrance) between them. In the table "time_slices", the start and end years are integers like *1520*. A row in the "similar_words" table would look like this *('bahamas', 'crisis', 1, 5)*. 'bahamas' is word1, 'crisis' is word2, '1' is the score between them and '5' is the id for the time slice the pair occurs in. For an edge to appear in the graph between *bahamas* and another node, there needs to be an entry with *bahamas* as word2 and the other node as word1 or vice versa.
+The exact column types can be adapted to your corpus, but the names above must
+exist. The frontend will only be useful when `similar_words`, `word_features`,
+and `word_counts` contain data for the configured target words and time slices. 
+
+The time_slices table defines the time periods used in the graph. Each row has an id, start_year, and end_year, for example (1, 1520, 1843).
+
+The similar_words table stores word similarity relations. It contains word1, word2, score, and time_id. For example, ('bahamas', 'crisis', 1, 5) means that bahamas and crisis are related in time slice 5 with score 1. These relations are used as graph edges.
+
+The word_counts table stores how frequent each word is in each time slice. It contains word1, freq, ppm, and time_id. Here, freq is the raw count and ppm is the normalized frequency per million words.
+
+The word_features table stores contextual features of words. It contains word1, feature, score, freq, and time_id. These features help explain why two words are similar, for example when they share similar dependency/context features.
+
+
+## Optional Elasticsearch Index
+
+Set `es_info: null` for a collection if you do not have document examples.
+Graph exploration still works without Elasticsearch.
+
+If `es_info` is configured, SCoT expects:
+
+- HTTPS Elasticsearch access with basic authentication
+- `host`, `port`, `user`, `pwd`, and `index` in the collection config
+- Documents with `date`, `sentence`, `source`, and `time_slice`
+- A nested `jobim` field containing `jo` and `bim` values
+
+Example:
+
+```yaml
+es_info:
+  host: "localhost"
+  port: 9200
+  user: "USER"
+  pwd: "PWD"
+  index: "demo_collection"
+```
+
+## Using the Sample Database
+
+SCoT provides a small sample database dump for testing the installation.
+The sample database can be found in: `dt/en_google_sample.sql.gz`
+
+It contains the required SCoT tables. The sample data is only for testing. It is much smaller than the full production databases.
+
+#### Running the Sample Database:
+1) Install or start MariaDB/MySQL
+
+Make sure MariaDB or MySQL is installed and running on your machine. You should be able to log in with: `mysql -u root -p`
+
+2) Import the sample database
+
+From the root directory of the SCoT repository, run: `gunzip -c db/en_google_sample.sql.gz | mysql -u root -p`. This creates a new local database called: **"en_google_sample"**
+
+3) Configure SCoT to use the sample database
+
+Open the SCoT configuration file: src_vue/config/config.yaml
+
+For the sample database, use a configuration like this:
+```yaml
+flask_host: "0.0.0.0"
+
+environments:
+  dev:
+    - en_google
+
+defaults:
+  db_url: "mysql+pymysql://root:YOUR_PASSWORD@localhost:3306"
+  access: "public"
+
+collections:
+  en_google:
+    displayname: "EN--Google Books Sample"
+    db: "en_google_sample"
+    frontend_info:
+      target: "bar/NN"
+      p: 10
+      d: 30
+    es_info: null
+```
+
+Replace YOUR_PASSWORD with your local MariaDB/MySQL password.
+
+The final database connection will become: 
+`mysql+pymysql://root:YOUR_PASSWORD@localhost:3306/en_google_sample`
+
 
 ## Some Remarks on the Tech Stack
 
@@ -95,15 +242,22 @@ In the image below you can see the overall architecture of SCoT.
 ![Architecture](./images/architecture.png)
 
 
-For rendering and manipulating the graph in the frontend I use D3.js in combination with Vue.js. 
+For rendering and manipulating the graph in the frontend, D3.js in combination with Vue.js is used. 
 
-[D3.js (Data Driven Documents)](https://d3js.org/) is a JavaScript library for creating custom interactive visualizations through direct manipulation of DOM elements. It provides methods to bind data to the DOM and many different ways to manipulate the DOM elements. For SCoT, I use a force simulation network to render the graph.
+[D3.js (Data Driven Documents)](https://d3js.org/) is a JavaScript library for creating custom interactive visualizations through direct manipulation of DOM elements. It provides methods to bind data to the DOM and many different ways to manipulate the DOM elements. For SCoT, a force simulation network is used to render the graph.
 
-For building the user interface, I used the JavaScript framework [Vue.js](https://vuejs.org). It is incrementally adaptable and easy to get started with. Vue.js provides directives to reactively interact with the HTML, e.g. data entered via an input field can be directly modeled by or bound to JavaScript variables.
-For styling the frontend I used [Bootstrap-Vue](https://bootstrap-vue.js.org/), a Bootstrap version developed especially for the Vue.js framework.
+For building the user interface, the JavaScript framework [Vue.js](https://vuejs.org) is used. It is incrementally adaptable and easy to get started with. Vue.js provides directives to reactively interact with the HTML, e.g. data entered via an input field can be directly modeled by or bound to JavaScript variables.
+For styling the frontend [Bootstrap-Vue](https://bootstrap-vue.js.org/) has been used, a Bootstrap version developed especially for the Vue.js framework.
 
-The backend is implemented in Python and MySQL. For accessibility reasons I decided to use Python [records](https://github.com/kennethreitz/records) to query the database. Records is an easy-to-use library to access most relational database types. Since SCoT only queries the database, records is sufficient.
-The REST API is implemented with [Flask](https://palletsprojects.com/p/flask/), a lightwight WSGI web application framework. For deploying the Flask app I use a combination of [uWSGI and nginx](https://github.com/tiangolo/uwsgi-nginx-flask-docker) in the Dockerfile.
-To calculate the clusters in the graph, I apply the [Chinese Whispers](https://www.inf.uni-hamburg.de/en/inst/ab/lt/publications/2006-biemann-cw-textgraph.pdf) algorithm.
+The backend is implemented in Python and MySQL. For accessibility reasons Python [records](https://github.com/kennethreitz/records) has been used to query the database. Records is an easy-to-use library to access most relational database types. Since SCoT only queries the database, records is sufficient.
+The REST API is implemented with [Flask](https://palletsprojects.com/p/flask/), a lightwight WSGI web application framework. For deploying the Flask app, a combination of [uWSGI and nginx](https://github.com/tiangolo/uwsgi-nginx-flask-docker) is used in the Dockerfile.
+To calculate the clusters in the graph, we apply the [Chinese Whispers](https://www.inf.uni-hamburg.de/en/inst/ab/lt/publications/2006-biemann-cw-textgraph.pdf) algorithm.
 
 To calculate the similarities between words you can use e.g. [JoBimText](http://ltmaggie.informatik.uni-hamburg.de/jobimtext/).
+
+## Troubleshooting
+
+- **Port conflicts**: If port 10020 (Docker) or 5006 (local) is already in use, modify the configuration accordingly
+- **Database connection errors**: Verify credentials and host/port in your YAML configuration
+- **Elasticsearch connection issues**: Ensure Elasticsearch is running and accessible at the configured host/port
+- **Missing dependencies**: Run `pip install -r requirements.txt` again or check Python version compatibility
