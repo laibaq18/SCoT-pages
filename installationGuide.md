@@ -257,7 +257,7 @@ To calculate the similarities between words you can use e.g. [JoBimText](http://
 
 ## Troubleshooting
 
-- **Port conflicts**: If port 10020 (Docker) or 5006 (local) is already in use, modify the configuration accordingly
+- **Port conflicts**: If port 10020 (Docker) or 5006 (local) is already in use, modify the configuration accordingly. Similarly, Port 3306 is the default port used by MySQL/MariaDB. If your database server uses a different port, replace 3306 with the correct port number in the db_url.
 - **Database connection errors**: Verify credentials and host/port in your YAML configuration
 - **Elasticsearch connection issues**: Ensure Elasticsearch is running and accessible at the configured host/port
 - **Missing dependencies**: Run `pip install -r requirements.txt` again or check Python version compatibility
