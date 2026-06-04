@@ -117,37 +117,37 @@ these tables and columns:
 
 ```sql
 CREATE TABLE time_slices (
-  id INT PRIMARY KEY,
-  start_year INT NOT NULL,
-  end_year INT NOT NULL
-);
+  id SMALLINT UNSIGNED NOT NULL,
+  start_year SMALLINT UNSIGNED NOT NULL,
+  end_year SMALLINT UNSIGNED NOT NULL ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 CREATE TABLE similar_words (
-  word1 VARCHAR(255) NOT NULL,
-  word2 VARCHAR(255) NOT NULL,
-  score DOUBLE NOT NULL,
-  time_id INT NOT NULL,
-  INDEX idx_similar_word1_time (word1, time_id),
-  INDEX idx_similar_word2_time (word2, time_id)
-);
+  word1 VARCHAR(256) COLLATE utf8_bin NOT NULL ,
+  word2 VARCHAR(256) COLLATE utf8_bin NOT NULL,
+  score SMALLINT UNSIGNED NOT NULL,
+  time_id SMALLINT UNSIGNED NOT NULL ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE INDEX word1_idx ON similar_words(word1)
+CREATE INDEX word2_idx ON similar_words(word2)
+CREATE INDEX time_id_idx ON similar_words(time_id)
 
 CREATE TABLE word_features (
-  word1 VARCHAR(255) NOT NULL,
-  feature VARCHAR(255) NOT NULL,
-  score DOUBLE NOT NULL,
-  freq DOUBLE NOT NULL,
-  time_id INT NOT NULL,
-  INDEX idx_features_word1_time (word1, time_id),
-  INDEX idx_features_feature_time (feature, time_id)
-);
+  word1 VARCHAR(256) COLLATE utf8_bin NOT NULL,
+  feature LONGTEXT NOT NULL,
+  score DOUBLE UNSIGNED NOT NULL,
+  freq INT(10) UNSIGNED NOT NULL,
+  norm_freq_feature FLOAT(4) UNSIGNED NOT NULL,
+  norm_freq_word FLOAT(4) UNSIGNED NOT NULL,
+  time_id SMALLINT UNSIGNED NOT NULL ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE INDEX word_idx ON word_features(word1)
+CREATE INDEX time_id_idx ON word_features(time_id)
 
 CREATE TABLE word_counts (
-  word1 VARCHAR(255) NOT NULL,
-  freq BIGINT NOT NULL,
-  ppm DOUBLE NOT NULL,
-  time_id INT NOT NULL,
-  INDEX idx_counts_word1_time (word1, time_id)
-);
+  word1 VARCHAR(256) COLLATE utf8_bin NOT NULL,
+  freq INT(10) UNSIGNED NOT NULL,
+  ppm FLOAT(4) UNSIGNED NOT NULL,
+  time_id SMALLINT UNSIGNED NOT NULL ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE INDEX word_idx ON word_counts(word1)
+CREATE INDEX time_id_idx ON word_counts(time_id)
 ```
 
 The exact column types can be adapted to your corpus, but the names above must
