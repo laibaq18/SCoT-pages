@@ -189,7 +189,7 @@ es_info:
 ## Using the Sample Database
 
 SCoT provides a small sample database dump for testing the installation.
-The sample database can be found in: `dt/en_google_sample.sql.gz`
+The sample database can be found in: `../en_google_sample.sql.gz`
 
 It contains the required SCoT tables. The sample data is only for testing. It is much smaller than the full production databases.
 
