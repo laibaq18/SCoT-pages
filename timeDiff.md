@@ -1,4 +1,4 @@
-# Time Diff Mode
+# Time Diff Mode {#time-diff-mode}
 
 [Back to user guide contents list](userGuide.md)
 
@@ -6,7 +6,7 @@ When selecting "time diff" mode in the cluster-analysis sidebar on the right-han
 
 ![Time Diff](./images/time-diff-modes.png)
 
-## Select Interval
+## 1) Select Interval
 
 With the option "Select Interval" the user can select a specific time interval within the time period selected for the graph and compare the smaller interval to the larger one.
 
@@ -20,12 +20,18 @@ In the graph, the nodes are coloured accordingly when "Show Differences" is clic
 
 ![Time Interval Graph](./images/colored-nodes.png)
 
+[To the top](#time-diff-mode)
 
-
-## Skip through time slices
+## 2) Skip through time slices
 
 With the "Skip through time slices" option, you can look at each time slice of your originally selected time period of the graph individually. You can either use it directly when switching from the sense clustering mode or after changing the colour of the nodes via the "Select Interval" option. 
 
 ![Skip Through Time Slices](./images/skip_though.png)
 
 **Note:** The "Select Interval" functionality and the "Skip through time slices" functionality are independent of each other.
+
+[To the top](#time-diff-mode)
+
+---
+
+Continue with the [Functions Tab](Functions.md) to learn about graph editing tools.
