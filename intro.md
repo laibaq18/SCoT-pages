@@ -162,7 +162,7 @@ The main navigation options are:
 
 ## 1. Create New Graph {#create-new-graph}
 The "Create Graph" Button slides out the Graph-Menu on the left which allows users to select the corpus, define the target word, choose the graph type,
-and configure various other graph visualization settings that shape the display of the graph. [More Information on Graph creation](intro.md) 
+and configure various other graph visualization settings that shape the display of the graph. [More Information on Graph creation](create-and-render.md) 
 
 ![Create Graph Tab](./images/intro-create-graph.png)
 
