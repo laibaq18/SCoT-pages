@@ -1,4 +1,4 @@
-# Context-Mining
+# Node Level Analysis
 
 [Back to user guide contents list](userGuide.md)
 
