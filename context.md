@@ -124,7 +124,7 @@ For example, in the image above, the node club/NN has its highest similarity sco
 ### Clicking a Node
 Clicking on a node opens the **Shared Context-Words** sidebar on the right-hand side of the screen.
 
-![](./images/node-context-bar.png)
+![](./images/node-context-bar-2.png)
 
 This sidebar provides additional information about the relationship between the selected node and the target word. The sidebar contains three main components:
 - 1) [Shared Context-Word Table](#shared-context-word-table)
@@ -163,7 +163,7 @@ The image below shows the Example Sentences for the context word `walk` w.r.t `N
 #### Node-Context Frequency:
 Similarly, by clicking the "Node-Context Frequency" button, the user can see how often a selected context-word occurs together with the target word and the selected/paradigm node over time.
 
-![Node-Context Frequency graph](./images/node-context-freq-graph.png)
+![Node-Context Frequency graph](./images/node-context-freq-graph.png){:height="50%" width="50%"}
 
 In this example above, the graph visualizes the context walk#VB#-prep_to for bar#NN and table#NN. The lines show how strongly this context is associated with each word across different time intervals. This helps users compare how the contextual relationship changes historically over time.
 
@@ -191,7 +191,7 @@ The **Node Frequency** graph shows how frequently the target word and the select
 
 This visualization helps users analyze changes in word usage over time and compare the relative prominence of the two words within the corpus.
 
-![Node Freq Graph zoomed](./images/zoomed-node-freq-graph.png)
+![Node Freq Graph zoomed](./images/zoomed-node-freq-graph.png){:height="50%" width="50%"}
 
 As shown above, users can click the arrow icon in the top-right corner of the graph to open an enlarged view. In the expanded view, the graph can be zoomed in or out and downloaded for further analysis.
 
@@ -204,7 +204,7 @@ As shown above, users can click the arrow icon in the top-right corner of the gr
 ## EDGES
 The same function can be used for edges. The user can click on an edge and a similar window will slide out which also enables context-mining.
 
-![Context-Mining for Edge clicked](./images/edge-context.png "Context-Mining bar for the clicked edge between lounge/NN and cafeteria/NN")
+![Context-Mining for Edge clicked](./images/edge-context.png "Context-Mining bar for the clicked edge between desk#NN and table#NN")
 
 [To the top](#node-level-analysis)
 
