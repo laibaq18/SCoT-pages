@@ -141,8 +141,8 @@ This page discusses the functionalities of the Cluster Tab. To learn about the o
 
 ## Contents
 * 1) [Editing the Clusters](#editing-the-clusters)
-* 2) [Edit Cluster Name](#edit-cluster-name-&-colour)
-* 3) [Edit Cluster Colour](#edit-cluster-name-&-colour)
+* 2) [Edit Cluster Name](#edit-cluster-name-and-colour)
+* 3) [Edit Cluster Colour](#edit-cluster-name-and-colour)
 * 4) [Nodes Plot](#view-nodes-plot)
 * 5) [Cluster Context Analysis](#cluster-context-analysis)
 * 6) [Delete Complete Cluster](#delete-complete-cluster)
@@ -175,7 +175,7 @@ In some cases, nodes are not connected to any other in the graph. They are only 
 ![Singletons](./images/singleton.png)
 
 
-## Edit Cluster Name & Colour {#edit-cluster-name-&-colour}
+## Edit Cluster Name & Colour {#edit-cluster-name-and-colour}
 
 The program only numbers the clusters and it is up to the user to name the cluster. Users can rename clusters and also assign custom colours through the Name section.
 
