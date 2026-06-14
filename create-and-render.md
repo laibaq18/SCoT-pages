@@ -78,35 +78,23 @@ To create a graph in SCoT, the user configures the main graph parameters in the 
 
 The user needs to:
 
-* Select a precalculated corpus using the **Collection** dropdown.
+* Select a precalculated corpus using the **Collection** dropdown: This determines which corpus or database will be used for the analysis.
 
-  * This determines which corpus or database will be used for the analysis.
+* Select the **Start of first interval**: This defines the beginning year of the analysis.
 
-* Select the **Start of first interval**.
-
-  * This defines the beginning year of the analysis.
-
-* Select the **End of last interval**.
-
-  * This defines the final year of the analysis.
+* Select the **End of last interval**: This defines the final year of the analysis.
 
 * Enter a **target word**.
 
   * This is the word whose semantic neighbourhood will be analyzed. (The semantic metrics used by SCoT have been precalculated by the Language Technology Group using the JoBim Framework [and, in the case of Google Books, by Google])
 
-* Set the maximum number of similar words.
+* Set the maximum number of similar words: This controls how many of the most semantically similar words to the target word are included as nodes.
 
-  * This controls how many of the most semantically similar words to the target word are included as nodes.
-
-* Set the density of interrelations between words.
-
-  * This controls how many connections, or edges, are created between the selected words.
+* Set the density of interrelations between words: This controls how many connections, or edges, are created between the selected words.
 
 * Choose the [Type of Graph](#choose-the-type-of-graph) depending on the analytical goal.
 
 * Click **Create and Cluster Graph**.
-
-  * SCoT then generates the graph and applies clustering.
 
 
 <!-- The user begins by selecting a precalculated corpus [1] using the Collection dropdown, which allows users to choose the corpus/database. Next, the user selects the Start of first interval, which defines the beginning year of the analysis, and the End of last interval, which defines the final year of the analysis [2], [3]. The user also specifies a target word [4]. The semantic metrics used by SCoT have been precalculated by the Language Technology Group using the JoBim Framework [and, in the case of Google Books, by Google]. The main purpose of SCoT is to analyze these metrics through clustered graph visualizations [9].
