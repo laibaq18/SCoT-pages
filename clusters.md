@@ -129,9 +129,9 @@ After clicking the Analyse Clusters button in the navigation bar, SCoT opens the
 
 As shown in the image above, the sidebar contains three main tabs:
 
-1) Cluster Tab for 
-2) Time-diff Tab for 
-3) Functions Tab for
+1) Cluster Tab - for inspecting and editing clusters, changing cluster names and colours, viewing node plots, analyzing shared context words, and deleting clusters. <br>
+2) Time-Diff Tab - for analyzing how nodes change across time intervals, including which nodes appear, disappear, remain stable, or occur only briefly. <br>
+3) Functions Tab - for applying advanced graph editing and analysis functions.
 
 This page discusses the functionalities of the Cluster Tab. To learn about the other tabs, continue with:
 
@@ -255,4 +255,4 @@ Complete cluster can be deleted via the button with the trash icon. The user the
 
 ---
 
-For Functionalities of the [Time-Diff Tab](timeDiff.md)
+To analyze how nodes change across selected time intervals continue with: [Time-Diff Tab](timeDiff.md)
