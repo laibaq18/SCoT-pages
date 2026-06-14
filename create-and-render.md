@@ -136,11 +136,18 @@ Best suited for exploratory analysis and flexible graph manipulation.
 
 ![](./images/graph-type-3.png "NGoT nodes & GLOBAL edges for target word 'network/NN', 30 nodes, 15 edges per node, 1520-2008" )
 
-After a graph has been created, users can interact with individual nodes and edges. Why different sized nodes? Clicking on a node opens node-level analysis options. These functions allow users to inspect the selected word in more detail and explore its context. 
+### Interacting with the Rendered Graph {#interacting-with-the-rendered-graph}
 
-! add image here
+After a graph has been created, users can interact with individual nodes and edges to explore the graph in more detail.
 
-To know more about this at: [Node Level Analysis](context.md)
+The nodes may appear in different sizes. By default, SCoT resizes nodes according to their average semantic similarity with the target word across all selected time intervals. Larger nodes therefore represent words that have a stronger semantic relationship with the target word over time.
+
+Clicking on a node opens the node-level analysis sidebar on the right-hand side of the interface. This sidebar allows users to inspect the selected word in more detail and explore the linguistic context behind its relationship with the target word.
+
+[](./images/node-context-bar.png)
+
+
+To learn more about node-level analysis continue with: [Node Level Analysis](context.md)
 
 [To the top](#create-and-render)
 
