@@ -489,7 +489,7 @@ es_info:
   index: "demo_collection"
 ```
 
-## Using the Sample Database {using-the-sample-database}
+## Using the Sample Database {#using-the-sample-database}
 
 SCoT provides a small sample database dump for testing the installation.
 The sample database can be found in: `../en_google_sample.sql.gz`
