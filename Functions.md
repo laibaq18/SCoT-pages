@@ -1,17 +1,17 @@
-# Functions Mode
+# Functions Mode {#functions-mode}
 
 [Back to user guide contents list](userGuide.md)
 
 When selecting "Functions" mode in the cluster-analysis sidebar on the right-hand side, the following functionality is available:
-* [Reclustering](#reclusturing)
-* [Change Cluster Assignment](#change-cluster-assignment)
-* [Betweenness Centrality](#betweenness-centrality)
-* [Node Cluster Balance](#node-cluster-balance)
-* [Resize Nodes as per Similarity](resize-nodes-as-per-similarity)
+* 1) [Reclustering](#reclusturing)
+* 2) [Change Cluster Assignment](#change-cluster-assignment)
+* 3) [Betweenness Centrality](#betweenness-centrality)
+* 4) [Node Cluster Balance](#node-cluster-balance)
+* 5) [Resize Nodes as per Similarity](#resize-nodes-as-per-similarity)
 
-![Functions](./images/functions.png)
+![Functions](./images/functions.png){:height="50%" width="50%"}
 
-## Change Cluster Assignment
+## 1) Change Cluster Assignment {#change-cluster-assignment}
 Under the Change Cluster Assignment section, there are three functions available to the user for any particular clicked node from the graph:
 
 1. Assigning the node to a different cluster
@@ -24,11 +24,11 @@ To support free editing of graphs for various purposes, users can assign nodes t
 
 After selecting the option "Assign to different cluster", a modal is opened,  which shows the selected node, its current cluster, and a dropdown field from which the user can select the new cluster of the node.
 
-![Change Cluster Assignment](./images/change-cluster-assignment.png)
+![Change Cluster Assignment](./images/change-cluster-assignment.png){:height="50%" width="50%"}
 
 On clicking "OK", the node's colour changes to the one of the newly assigned cluster. It also changes the cluster in the cluster list.
 
-[To the top](#interacting-with-the-graph)
+[To the top](#functions-mode)
 
 
 ### Creating a New Cluster for a Node
@@ -44,15 +44,15 @@ The selected node is displayed to the user, so that they can verify that they ar
 
 The image above shows the node "Bliss" as a new cluster.
 
-[To the top](#interacting-with-the-graph)
+[To the top](#functions-mode)
 
 
 ### Deleting a Node
 A selected node in the graph and the links connecting it to any of the nodes in the graph can deleted via the "Delete node" button. This applies for both normal word nodes as well as cluster nodes. 
 
-[To the top](#interacting-with-the-graph)
+[To the top](#functions-mode)
 
-## Betweenness Centrality
+## Betweenness Centrality {#betweenness-centrality}
 
 Betweenness centrality is a common measure of centrality for graphs based on shortest paths. The betweenness centrality for each node is the number of shortest paths that pass through it. For more information see [Wikipedia](https://en.wikipedia.org/wiki/Betweenness_centrality) and the [Networkx documentation](https://networkx.github.io/documentation/latest/reference/algorithms/generated/networkx.algorithms.centrality.betweenness_centrality.html#networkx.algorithms.centrality.betweenness_centrality).
 
@@ -80,11 +80,11 @@ Note: To revert back to the original sizes of the nodes, the user can click on t
 
 When the user selects the option "List centrality node scores" all the nodes are listed together with their respective betweenness centrality scores. The columns of the table are sortable.
 
-![List betweenness cetrality scores](./images/list-centrality-nodes.png){:height="50%" width="50%"}
+![List betweenness cetrality scores](./images/list-centrality-nodes.png){:height="30%" width="50%"}
 
-[To the top](#the-functions-of-the-navbar)
+[To the top](#functions-mode)
 
-## Node Cluster Balance
+## Node Cluster Balance {#node-cluster-balance}
 
 This provides the option for highlighting nodes that are connected to more than one cluster with around the same amount of edges, also known as "hubs". Clicking on the option "Highlight nodes in graph" results in the increased size of some nodes in the graph. There are three different sizes:
 
@@ -114,18 +114,18 @@ Selecting the option "List nodes" gives the user information about the neighbour
 
 Clicking on the "Show Details" button lists all the nodes the node is connected to grouped by cluster.
 
-[To the top](#the-functions-of-the-navbar)
+[To the top](#functions-mode)
 
-## Recluster Option
+## Recluster Option {#reclusturing}
 
 The clusters in the graph are calculated using the Chinese Whispers algorithm. The algorithm is very fast, but non-deterministic. So you never know upfront how many clusters you will get and which nodes will belong to which cluster. Because of this, executing the algorithm several times may result in a different clustering each time. 
 
 The user can execute the algorithm again by clicking on the button "Recluster with Chinese Whispers".
 This way, the user is able to see different hypothesis the system assumes about the senses of the target word. For more information on the Chinese Whispers Clustering Algorithm click [here](https://www.inf.uni-hamburg.de/en/inst/ab/lt/publications/2006-biemann-cw-textgraph.pdf).
 
-[To the top](#the-functions-of-the-navbar)
+[To the top](#functions-mode)
 
-## Resize Nodes as per Similarity
+## Resize Nodes as per Similarity {#resize-nodes-as-per-similarity}
 This section changes the size of graph nodes based on how semantically similar they are to the target word over time. The available options are: Maximum & Average.
 
 <!-- Maximum - resizes nodes using the highest similarity value the node reaches in any time interval. This highlights nodes that were extremely important or strongly related at least once in time. -->
@@ -136,4 +136,4 @@ Average - resizes nodes using the average similarity across all time intervals. 
 
 ![Example of ''Maximum similarity''](./images/resized-maximum.png )
 
-[To the top](#the-functions-of-the-navbar)
+[To the top](#functions-mode)
