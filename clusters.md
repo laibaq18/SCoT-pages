@@ -131,7 +131,7 @@ As shown in the image above, the sidebar contains three main tabs:
 
 1) Cluster Tab - for inspecting and editing clusters, changing cluster names and colours, viewing node plots, analyzing shared context words, and deleting clusters. <br>
 2) Time-Diff Tab - for analyzing how nodes change across time intervals, including which nodes appear, disappear, remain stable, or occur only briefly. <br>
-3) Functions Tab - for applying advanced graph editing and analysis functions.
+3) Functions Tab - for trying advanced graph tools such as reclustering, editing node-cluster assignments, calculating centrality, and resizing nodes by semantic similarity.
 
 This page discusses the functionalities of the Cluster Tab. To learn about the other tabs, continue with:
 
