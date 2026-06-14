@@ -144,7 +144,7 @@ The nodes may appear in different sizes. By default, SCoT resizes nodes accordin
 
 Clicking on a node opens the node-level analysis sidebar on the right-hand side of the interface. This sidebar allows users to inspect the selected word in more detail and explore the linguistic context behind its relationship with the target word.
 
-[](./images/node-context-bar.png)
+![](./images/node-context-bar.png)
 
 
 To learn more about node-level analysis continue with: [Node Level Analysis](context.md)
