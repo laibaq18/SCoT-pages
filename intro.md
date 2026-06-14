@@ -164,7 +164,7 @@ The main navigation options are:
 The "Create Graph" Button slides out the Graph-Menu on the left which allows users to select the corpus, define the target word, choose the graph type,
 and configure various other graph visualization settings that shape the display of the graph. [More Information on Graph creation](intro.md) 
 
-! insert image here
+![Create Graph Tab](./images/intro-create-graph.png)
 
 [To the top](#introduction)
 
@@ -175,7 +175,7 @@ Clicking the button "Analyse Clusters" toggles the Cluster Analysis sidebar on t
 * 2) time-difference analysis,
 * 3) and advanced graph functions.
 
-! insert image here
+![Analyse Cluster Tab](./images/intro-analyse-cluster.png)
 
 More information:
 * [Cluster Analysis](clusters.md)
