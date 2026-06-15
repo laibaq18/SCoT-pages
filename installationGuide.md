@@ -336,7 +336,7 @@ environments:
 # Default values to avoid repetition
 defaults:
   frontend_info:
-    target: "word#POS"   # <- 
+    target: "word#POS"   # <- # Target word as stored in the DB; how the corpus was dependency-parsed, this can be word/POS, word#POS, or simply word.
     p: 30
     d: 15
   es_info:
