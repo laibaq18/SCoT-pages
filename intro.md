@@ -275,7 +275,7 @@ If the search does not yield any results, an alert is also displayed.
 
 ## 6. Reset Highlighting {#reset-highlighting}
 
-The "Reset Highlighting" button clears all active graph highlighting.
+The "Reset Highlighting" button clears all active graph highlighting. Pressing the Escape/Esc key is also a shortcut for the Resent Highlighting functionality to work. 
 
 This includes:
 search highlighting,
