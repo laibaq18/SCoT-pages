@@ -3,10 +3,10 @@
 [Back to user guide contents list](userGuide.md)
 
 When selecting "Functions" mode in the cluster-analysis sidebar on the right-hand side, the following functionality is available:
-* 1) [Reclustering](#reclusturing)
-* 2) [Change Cluster Assignment](#change-cluster-assignment)
-* 3) [Betweenness Centrality](#betweenness-centrality)
-* 4) [Node Cluster Balance](#node-cluster-balance)
+* 1) [Change Cluster Assignment](#change-cluster-assignment)
+* 2) [Betweenness Centrality](#betweenness-centrality)
+* 3) [Node Cluster Balance](#node-cluster-balance)
+* 4) [Reclustering](#reclusturing)
 * 5) [Resize Nodes as per Similarity](#resize-nodes-as-per-similarity)
 
 ![Functions](./images/functions.png){:height="50%" width="50%"}
@@ -52,7 +52,7 @@ A selected node in the graph and the links connecting it to any of the nodes in 
 
 [To the top](#functions-mode)
 
-## Betweenness Centrality {#betweenness-centrality}
+## 2) Betweenness Centrality {#betweenness-centrality}
 
 Betweenness centrality is a common measure of centrality for graphs based on shortest paths. The betweenness centrality for each node is the number of shortest paths that pass through it. For more information see [Wikipedia](https://en.wikipedia.org/wiki/Betweenness_centrality) and the [Networkx documentation](https://networkx.github.io/documentation/latest/reference/algorithms/generated/networkx.algorithms.centrality.betweenness_centrality.html#networkx.algorithms.centrality.betweenness_centrality).
 
@@ -84,7 +84,7 @@ When the user selects the option "List centrality node scores" all the nodes are
 
 [To the top](#functions-mode)
 
-## Node Cluster Balance {#node-cluster-balance}
+## 3) Node Cluster Balance {#node-cluster-balance}
 
 This provides the option for highlighting nodes that are connected to more than one cluster with around the same amount of edges, also known as "hubs". Clicking on the option "Highlight nodes in graph" results in the increased size of some nodes in the graph. There are three different sizes:
 
@@ -116,7 +116,7 @@ Clicking on the "Show Details" button lists all the nodes the node is connected 
 
 [To the top](#functions-mode)
 
-## Recluster Option {#reclusturing}
+## 4) Recluster Option {#reclusturing}
 
 The clusters in the graph are calculated using the Chinese Whispers algorithm. The algorithm is very fast, but non-deterministic. So you never know upfront how many clusters you will get and which nodes will belong to which cluster. Because of this, executing the algorithm several times may result in a different clustering each time. 
 
@@ -125,7 +125,7 @@ This way, the user is able to see different hypothesis the system assumes about 
 
 [To the top](#functions-mode)
 
-## Resize Nodes as per Similarity {#resize-nodes-as-per-similarity}
+## 5) Resize Nodes as per Similarity {#resize-nodes-as-per-similarity}
 This section changes the size of graph nodes based on how semantically similar they are to the target word over time. The available options are: Maximum & Average.
 
 <!-- Maximum - resizes nodes using the highest similarity value the node reaches in any time interval. This highlights nodes that were extremely important or strongly related at least once in time. -->
