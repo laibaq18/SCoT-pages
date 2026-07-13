@@ -8,5 +8,4 @@
 4. [Cluster-Analysis](clusters.md)
 5. [Time-Slice-Analysis](timeDiff.md)
 6. [Advanded Graph Functions](Functions.md)
-
 7. [API Guide](API-guide.md)
