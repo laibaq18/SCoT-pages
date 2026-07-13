@@ -297,7 +297,7 @@ If no documents are found: "doc": "No Results."
 <!-- - `time_ids` and `time_slices` must describe the same selected time slices in the same order.
 - The backend filters requested slices to those where the word-feature pair exists. -->
 
-### 8. POST /api/collections/{collection}/documents_scroll — bulk sentence export
+## 8. POST /api/collections/{collection}/documents_scroll — bulk sentence export
 
 **Purpose:** Same input as `/documents`. Returns ALL matching example documents as a tab-separated string.
 
