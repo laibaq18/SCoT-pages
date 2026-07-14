@@ -11,7 +11,7 @@ BASE_URL=http://localhost:10020
 If you run SCoT another way, replace this with the host and port you use to open the interface. For example, native Flask development commonly uses `http://localhost:5000`.
 
 
-## 1. GET /api/collections — discover datasets
+## 1. GET /api/collections - discover datasets
 
 **Purpose:** List available corpora and their metadata (year ranges, defaults, whether Elasticsearch is available).
 
@@ -57,7 +57,7 @@ curl "$BASE_URL/api/collections"
 - `start_years` and `end_years` contain all valid year values for the collection.
 - `is_ES_available` controls whether document endpoints can return example sentences.
 
-## 2. POST /api/collections/{collection}/autocomplete — validate target word
+## 2. POST /api/collections/{collection}/autocomplete - validate target word
 
 **Purpose:** Check whether a word exists in the collection and get suggestions for a partial target-word query.
 
