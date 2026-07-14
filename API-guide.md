@@ -248,7 +248,6 @@ curl -X POST "$BASE_URL/api/cluster_information" \
 ```
 
 - Each key is a context word/feature; value is `[normalized_score, { time_id: frequency, ... }]`. Limited to top 200.
-<!-- - If `props.cluster_target_filter` is true, results are filtered to context features that also occur with `props.target_word`. -->
 
 ## 7. POST /api/collections/{collection}/documents - example sentences
 
@@ -294,8 +293,6 @@ curl -X POST "$BASE_URL/api/collections/en_coha/documents" \
 If no documents are found: "doc": "No Results."
 
 - Call `GET /api/collections` and check `is_ES_available` before using this endpoint.
-<!-- - `time_ids` and `time_slices` must describe the same selected time slices in the same order.
-- The backend filters requested slices to those where the word-feature pair exists. -->
 
 ## 8. POST /api/collections/{collection}/documents_scroll - bulk sentence export
 
@@ -356,7 +353,6 @@ curl -X POST "$BASE_URL/api/collections/en_gbooks_8/wordfeaturecounts" \
 
 
 ## Error and Availability Notes
-<!-- - The current API does not define a uniform error response for all endpoints. -->
 - Missing required fields may result in a server error.
 - Invalid collection keys may result in a server error.
 - Private collection access depends on server configuration. `/api/verify-key` only checks whether a key exists in the configured access-key file.
