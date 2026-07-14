@@ -87,7 +87,7 @@ This is the main endpoint for extracting SCoT graph data.
 
 **Request Shape** (`NGOTProperties` — see `model/ngot_model.py`):
 
-```json
+```bash
 curl -X POST "$BASE_URL/api/collections/sense_graph" \
   -H "Content-Type: application/json" \
   -d '{
@@ -116,7 +116,7 @@ Also, set the Graph-type-specific fields:
 
 **Response Shape:**
 
-```json
+```bash
 {
   "props": { collection info ..., selected_time_ids: [..], weight_stats {}, etc." },
   "nodes": [ { "id": "...", "target_text": "...", "weight": .., "time_ids": [...], "cluster_id": 1, ..} ...  ],
@@ -147,7 +147,7 @@ Send the full graph object returned by `POST /api/collections/sense_graph`.
 
 Returns the same NGOT graph shape as `POST /api/collections/sense_graph`, with updated cluster information.
 
-```json
+```bash
 {
   "props": {},
   "nodes": [],
@@ -188,7 +188,7 @@ curl -X POST "$BASE_URL/api/collections/en_gbooks_8/simbim" \
 
 **Response Shape:**
 
-```json
+```bash
 {
   "1035": {
       "key": "-by_pobj/stop/VB",  # <- shared context feature
@@ -241,7 +241,7 @@ curl -X POST "$BASE_URL/api/cluster_information" \
 
 **Response Shape:**
 
-```json
+```bash
 {"-above_pobj/room/NN":[0.01958.. , {"1": 17.0, "3": 253.0}],
 "-amod/downtown/JJ":[0.00475361..  ,  {"1": 33.0, "3": 68.0}] ..
 }
@@ -281,7 +281,7 @@ curl -X POST "$BASE_URL/api/collections/en_coha/documents" \
 
 **Response Shape:**
 
-```json
+```bash
 {
   "docs": [
     {"doc": "time-slice: Example sentence containing the words. [source-name]"}, 
