@@ -161,7 +161,7 @@ Returns the same NGOT graph shape as `POST /api/collections/sense_graph`, with u
 - The request must include `nodes` and `links`.
 - The backend rebuilds internal node and link dictionaries before clustering.
 
-## 5. POST /api/collections/{collection}/simbim — shared contexts between two words
+## 5. POST /api/collections/{collection}/simbim - shared contexts between two words
 
 **Purpose:** Returns shared context features that explain why two words are semantically connected.
 
@@ -213,7 +213,7 @@ If there are no shared features:
 ```
 - The response is limited to the top shared features.
 
-## 6. POST /api/cluster_information — cluster-level context words
+## 6. POST /api/cluster_information - cluster-level context words
 
 **Purpose:** Returns context features that are significant for a cluster.
 
@@ -250,7 +250,7 @@ curl -X POST "$BASE_URL/api/cluster_information" \
 - Each key is a context word/feature; value is `[normalized_score, { time_id: frequency, ... }]`. Limited to top 200.
 <!-- - If `props.cluster_target_filter` is true, results are filtered to context features that also occur with `props.target_word`. -->
 
-## 7. POST /api/collections/{collection}/documents — example sentences
+## 7. POST /api/collections/{collection}/documents - example sentences
 
 **Purpose:** Returns example sentences containing a word and a context feature.
 
@@ -297,7 +297,7 @@ If no documents are found: "doc": "No Results."
 <!-- - `time_ids` and `time_slices` must describe the same selected time slices in the same order.
 - The backend filters requested slices to those where the word-feature pair exists. -->
 
-## 8. POST /api/collections/{collection}/documents_scroll — bulk sentence export
+## 8. POST /api/collections/{collection}/documents_scroll - bulk sentence export
 
 **Purpose:** Same input as `/documents`. Returns ALL matching example documents as a tab-separated string.
 
@@ -310,7 +310,7 @@ Use this endpoint when you want export-style document data instead of the short 
 ```
 
 
-## 9. POST /api/collections/{collection}/wordfeaturecounts feature frequency over time
+## 9. POST /api/collections/{collection}/wordfeaturecounts - feature frequency over time
 
 
 **Purpose:** Returns time-series counts for a context feature with two words.
