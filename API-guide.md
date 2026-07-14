@@ -25,7 +25,7 @@ curl "$BASE_URL/api/collections"
 
 **Response Shape:**
 
-```json
+```bash
 "English--Google Books-Syntactic Ngrams--1520-2008--8 Slices--": {
     "key": "en_gbooks_8",
     "target": "bar/NN",  # <- Target word as stored in the DB; how the corpus was dependency-parsed, this can be word/POS, word#POS, or simply word.
