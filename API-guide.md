@@ -33,13 +33,6 @@ curl "$BASE_URL/api/collections"
     "d": 15,
     "is_public": true/false,
     "is_ES_available": true/false,
-    "es_info": {
-        "host": "localhost",
-        "port": 9200,
-        "user": "USER",
-        "pwd": "PWD",
-        "index": "ES index name"
-    },
     "start_years": [
       { "id": 1, "text": "1900", "value": 1900 } , ...
     ],
@@ -68,9 +61,9 @@ curl "$BASE_URL/api/collections"
 
 **Request Shape:**
 
-Example - if the collection key is: "en_gbooks_8"
+Example - if the collection key is: "en_coha"
 ```bash
-curl -X POST "$BASE_URL/api/collections/en_gbooks_8/autocomplete" \
+curl -X POST "$BASE_URL/api/collections/en_coha/autocomplete" \
   -H "Content-Type: application/json" \
   -d '{
     "query": "ban"
@@ -91,7 +84,7 @@ This is the main endpoint for extracting SCoT graph data.
 curl -X POST "$BASE_URL/api/collections/sense_graph" \
   -H "Content-Type: application/json" \
   -d '{
-    "collection_key": "en_gbooks_8",
+    "collection_key": "en_coha",
     "start_year": 1995,
     "end_year": 2010,
     "target_word": "bar/NN",
@@ -177,7 +170,7 @@ In SCoT, an edge represents similarity. Similarity is explained through shared s
 **Request:**
 
 ```bash
-curl -X POST "$BASE_URL/api/collections/en_gbooks_8/simbim" \
+curl -X POST "$BASE_URL/api/collections/en_coha/simbim" \
   -H "Content-Type: application/json" \
   -d '{
     "word1": "bar/NN",
@@ -229,7 +222,7 @@ Use this after creating a graph. Pass the cluster nodes and their time ids to ge
 curl -X POST "$BASE_URL/api/cluster_information" \
   -H "Content-Type: application/json" \
   -d '{
-    "collection": "en_gbooks_8",
+    "collection": "en_coha",
     "nodes": [
       { "label": "store/NN", "time_id": 1 },
       { "label": "shop/NN", "time_id": 3 },
@@ -324,7 +317,7 @@ Use this after `simbim` or `cluster_information` when you want to see how a feat
 **Request:**
 
 ```bash
-curl -X POST "$BASE_URL/api/collections/en_gbooks_8/wordfeaturecounts" \
+curl -X POST "$BASE_URL/api/collections/en_coha/wordfeaturecounts" \
   -H "Content-Type: application/json" \
   -d '{
     "word1": "bar/NN",
