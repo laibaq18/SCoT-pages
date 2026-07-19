@@ -5,7 +5,7 @@ You can find SCoT at <https://scot.ltdemos.informatik.uni-hamburg.de/>
 The functionalities and usage are described in the [user guide](userGuide.md).   
 If you would like to deploy or develop SCoT yourself, see [installation guide](installationGuide.md).  
 To retrieve data directly from SCoT without interacting with the web interface, refer to the [API guide](API-guide.md).
- The project is maintained by the [Language Technology Group at Universität Hamburg](https://www.inf.uni-hamburg.de/en/inst/ab/lt/home.html). 
+The project is maintained by the [Language Technology Group at Universität Hamburg](https://www.inf.uni-hamburg.de/en/inst/ab/lt/home.html). 
 
 **Developers:**
 * [Christian Haase](https://www2.informatik.uni-hamburg.de/fiona/pers.php?lang=de#haase) [Version 2]
