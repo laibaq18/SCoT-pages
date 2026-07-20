@@ -85,9 +85,9 @@ curl -X POST "$BASE_URL/api/collections/sense_graph" \
   -H "Content-Type: application/json" \
   -d '{
     "collection_key": "en_coha",
-    "start_year": 1995,
-    "end_year": 2010,
-    "target_word": "bar/NN",
+    "start_year": 1820,
+    "end_year": 2019,
+    "target_word": "bar#NN",
 
     "n_nodes": 30,                 # <- Number of nearest-neighbor nodes requested
     "density": 15,                 # <- value used to derive edge count
@@ -97,6 +97,7 @@ curl -X POST "$BASE_URL/api/collections/sense_graph" \
     "cluster_target_filter": true/false,
     "remove_singletons": false/true
   }'
+
 ```
 
 Also, set the Graph-type-specific fields:
